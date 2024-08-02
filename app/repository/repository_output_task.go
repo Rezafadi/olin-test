@@ -1,10 +1,7 @@
 package repository
 
 import (
-	"olin-test/app/reqres"
 	"sort"
-
-	"github.com/labstack/echo/v4"
 )
 
 func TwoSum(nums []int, target int) []int {
@@ -19,24 +16,24 @@ func TwoSum(nums []int, target int) []int {
 	return []int{}
 }
 
-func TwoSumOutput(c echo.Context) error {
-	var response reqres.OutputTask1
+// func TwoSumOutput(c echo.Context) error {
+// 	var response reqres.OutputTask1
 
-	nums := []int{1, 2, 3, 4, 5}
-	target := 9
-	data := TwoSum(nums, target)
-	response.Output = data
-	response.Number = nums
-	response.Target = target
+// 	nums := []int{1, 2, 3, 4, 5}
+// 	target := 9
+// 	data := TwoSum(nums, target)
+// 	response.Output = data
+// 	response.Number = nums
+// 	response.Target = target
 
-	return c.JSON(200, map[string]interface{}{
-		"success": 200,
-		"data":    response,
-		"message": "success",
-	})
-}
+// 	return c.JSON(200, map[string]interface{}{
+// 		"success": 200,
+// 		"data":    response,
+// 		"message": "success",
+// 	})
+// }
 
-func threeSum(nums []int) [][]int {
+func ThreeSum(nums []int) [][]int {
 	var result [][]int
 	sort.Ints(nums)
 	n := len(nums)
@@ -68,22 +65,22 @@ func threeSum(nums []int) [][]int {
 	return result
 }
 
-func ThreeSumOutput(c echo.Context) error {
-	var response reqres.OutputTask2
+// func ThreeSumOutput(c echo.Context) error {
+// 	var response reqres.OutputTask2
 
-	nums1 := []int{-1, 0, 1, 2, -1, -4}
-	data := threeSum(nums1)
-	response.Output = data
-	response.Number = nums1
+// 	nums1 := []int{-1, 0, 1, 2, -1, -4}
+// 	data := threeSum(nums1)
+// 	response.Output = data
+// 	response.Number = nums1
 
-	return c.JSON(200, map[string]interface{}{
-		"success": 200,
-		"data":    response,
-		"message": "success",
-	})
-}
+// 	return c.JSON(200, map[string]interface{}{
+// 		"success": 200,
+// 		"data":    response,
+// 		"message": "success",
+// 	})
+// }
 
-func findSubstring(s string, words []string) []int {
+func FindSubstring(s string, words []string) []int {
 	if len(s) == 0 || len(words) == 0 {
 		return []int{}
 	}
@@ -113,7 +110,7 @@ func findSubstring(s string, words []string) []int {
 				break
 			}
 		}
-		if compareMaps(seen, wordCount) {
+		if CompareMaps(seen, wordCount) {
 			result = append(result, i)
 		}
 	}
@@ -121,7 +118,7 @@ func findSubstring(s string, words []string) []int {
 	return result
 }
 
-func compareMaps(a, b map[string]int) bool {
+func CompareMaps(a, b map[string]int) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -133,20 +130,20 @@ func compareMaps(a, b map[string]int) bool {
 	return true
 }
 
-func Test4(c echo.Context) error {
-	var response reqres.OutputTask3
+// func Test4(c echo.Context) error {
+// 	var response reqres.OutputTask3
 
-	s := "barfoofoobarthefoobarman"
-	words := []string{"bar", "foo", "the"}
+// 	s := "barfoofoobarthefoobarman"
+// 	words := []string{"bar", "foo", "the"}
 
-	data := findSubstring(s, words)
-	response.Output = data
-	response.String = s
-	response.Words = words
+// 	data := findSubstring(s, words)
+// 	response.Output = data
+// 	response.String = s
+// 	response.Words = words
 
-	return c.JSON(200, map[string]interface{}{
-		"success": 200,
-		"data":    response,
-		"message": "success",
-	})
-}
+// 	return c.JSON(200, map[string]interface{}{
+// 		"success": 200,
+// 		"data":    response,
+// 		"message": "success",
+// 	})
+// }

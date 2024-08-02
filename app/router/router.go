@@ -1,7 +1,7 @@
 package router
 
 import (
-	"olin-test/app/repository"
+	"olin-test/app/controllers"
 
 	"github.com/labstack/echo/v4"
 )
@@ -9,8 +9,8 @@ import (
 func Init(app *echo.Echo) {
 	api := app.Group("/v1")
 	{
-		api.GET("/test1", repository.TwoSumOutput)
-		api.GET("/test2", repository.ThreeSumOutput)
-		api.GET("/test3", repository.Test4)
+		api.GET("/test1", controllers.TwoSumOutput)
+		api.GET("/test2", controllers.ThreeSumOutput)
+		api.GET("/test3", controllers.Test4)
 	}
 }
